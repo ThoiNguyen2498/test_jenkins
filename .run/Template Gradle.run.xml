@@ -1,0 +1,44 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+    <ExternalSystemSettings>
+      <option name="env">
+        <map>
+          <entry key="ENV_HASHICORP_VAULT_ADDRESS" value="http://test-system.cogover.net:30081" />
+          <entry key="ENV_HASHICORP_VAULT_TOKEN" value="hvs.6o9FFluzEobgnZ8Y0T77CucS" />
+          <entry key="ENV_HASHICORP_VAULT_VERSION" value="2" />
+          <entry key="ENV_VAULT_TYPE" value="0" />
+          <entry key="GIT_BRANCH" value="dev" />
+          <entry key="VAULT_KV_MODULE_ADDR" value="kv/module_addr/test" />
+        </map>
+      </option>
+      <option name="executionName" />
+      <option name="externalProjectPath" value="" />
+      <option name="externalSystemIdString" value="GRADLE" />
+      <option name="scriptParameters" value="" />
+      <option name="taskDescriptions">
+        <list />
+      </option>
+      <option name="taskNames">
+        <list />
+      </option>
+      <option name="vmOptions" />
+    </ExternalSystemSettings>
+    <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+    <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+    <EXTENSION ID="com.intellij.execution.ExternalSystemRunConfigurationJavaExtension">
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="true" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+    </EXTENSION>
+    <DebugAllEnabled>false</DebugAllEnabled>
+    <RunAsTest>false</RunAsTest>
+    <method v="2" />
+  </configuration>
+</component>

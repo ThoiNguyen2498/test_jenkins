@@ -1,0 +1,25 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="true" type="Application" factoryName="Application">
+    <envs>
+      <env name="ENV_HASHICORP_VAULT_ADDRESS" value="http://test-system.cogover.net:30081" />
+      <env name="ENV_HASHICORP_VAULT_TOKEN" value="hvs.6o9FFluzEobgnZ8Y0T77CucS" />
+      <env name="ENV_HASHICORP_VAULT_VERSION" value="2" />
+      <env name="ENV_VAULT_TYPE" value="0" />
+      <env name="VAULT_KV_MODULE_ADDR" value="kv/module_addr/test" />
+      <env name="GIT_BRANCH" value="dev" />
+    </envs>
+    <extension name="net.ashald.envfile">
+      <option name="IS_ENABLED" value="false" />
+      <option name="IS_SUBST" value="false" />
+      <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+      <option name="IS_IGNORE_MISSING_FILES" value="false" />
+      <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+      <ENTRIES>
+        <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+      </ENTRIES>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

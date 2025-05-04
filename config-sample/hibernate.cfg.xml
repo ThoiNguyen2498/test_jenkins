@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://FROM_VAULT/{NAMESPACE}_common_cogover_account?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.username">FROM_VAULT</property>
+        <property name="hibernate.connection.password">FROM_VAULT</property>
+
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.provider_class">
+            org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+        </property>
+        <property name="hibernate.c3p0.min_size">2</property>
+        <property name="hibernate.c3p0.max_size">500</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.checkoutTimeout">50000</property>
+        <property name="hibernate.c3p0.max_statements">10</property>
+        <property name="hibernate.c3p0.idle_test_period">30000</property>
+
+        <mapping class="com.cogover.template.server.database.entity.common_mysql.Account"/>
+        <mapping class="com.cogover.template.server.database.entity.common_mysql.DbConfig"/>
+        <mapping class="com.cogover.template.server.database.entity.common_mysql.Workspace"/>
+    </session-factory>
+</hibernate-configuration>

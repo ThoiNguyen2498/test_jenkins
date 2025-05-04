@@ -1,0 +1,4 @@
+1. Prompt
+    /code Tôi cần code tính năng "Quản lý App" (tạo, sửa, xoá, lấy danh sách App).
+        + Cấu trúc bảng app sử dụng MySQL trong file tôi đã đính kèm.
+        + Code mẫu tham khảo: GetWorkspaceEmailController, GetWorkspaceEmailService, EmailWorkspace, WorkspaceEmailRepository; sau đó code cho tôi tính năng trên.

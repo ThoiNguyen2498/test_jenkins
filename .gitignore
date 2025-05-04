@@ -1,0 +1,14 @@
+
+/.gradle/
+
+/build
+/.idea
+/_deploy
+/proguard-app.map
+/log/
+/config/
+.DS_Store
+/QRCode.png
+
+/deployment/dockerRegistryPassword.txt
+/deployment/k8s-master-ssh.private.key

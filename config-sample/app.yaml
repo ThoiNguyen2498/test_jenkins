@@ -1,0 +1,47 @@
+
+vault:
+    rpcHttpServerPrivatePath: kv/authorization-server/rpcHttpServerPrivate
+
+mongodb:
+    host: FROM_VAULT
+    port: 0
+    database: cogover
+
+kafka:
+    uri: FROM_VAULT
+    username: FROM_VAULT
+    password: FROM_VAULT
+    dbDataChangeTopic: database_data_change
+    enableAuth: true
+
+#rpcServer ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ==>
+#chỉ mở cho các node khác truy cập vào, ko mở ra internet (port range: 7000-7999)
+rpcTcpServerPrivate:
+    host: 0.0.0.0
+    port: 7180
+#chỉ mở cho các node khác truy cập vào, ko mở ra internet (port range: 7000-7999)
+rpcHttpServerPrivate:
+    host: 0.0.0.0
+    port: 7181
+    username: FROM_VAULT
+    password: FROM_VAULT
+#mở cho các node khác và từ internet (port range: 10000-10999)
+rpcHttpServerPublic:
+    host: 0.0.0.0
+    port: 10100
+
+
+#Bieu thuc chinh quy domain, subdomain duoc chap nhan redirect den sau khi login thanh cong
+whitelistContinueUrlDomains:
+    - ^(.+)\.cogover\.com$
+    - ^(.+)\.cogover\.net$
+    - ^cogover\.net$
+    - ^cogover\.com$
+
+
+#danh sach cac domain chay webapp duoc chap nhan CORS; cach nhau bang dau phay
+corsAllowedOrigins:
+    http://id.cogover.local,http://localhost,http://localhost:5173,http://localhost:5000,http://localhost:5001,http://localhost:5002,https://id.cogover.local
+
+
+

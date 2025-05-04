@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="30">
+    <Properties>
+        <Property name="basePath">./log</Property>
+        <Property name="LOG_PATTERN">[template-server] [%t] %d{dd/MM/yyyy HH:mm:ss.S} %5p %c{1} (%L): %m%n</Property>
+        <Property name="logstashHost">127.0.0.1</Property>
+        <Property name="logstashPort">25826</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="CONSOLE_LOG" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="APP_LOG_FILE" fileName="${basePath}/app.log"
+                     filePattern="${basePath}/app.%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="2048MB"/>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <DefaultRolloverStrategy max="100">
+                <Delete basePath="${basePath}/" maxDepth="2">
+                    <IfFileName glob="app.*.log.gz">
+                        <IfLastModified age="P60D">
+                        </IfLastModified>
+                    </IfFileName>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="ERROR_LOG_FILE" fileName="${basePath}/error.log"
+                     filePattern="${basePath}/error_%i.log">
+            <LevelRangeFilter minLevel="ERROR" maxLevel="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="500MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3">
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <Socket name="LOGSTASH_VIA_UDP" host="${logstashHost:-localhost}" port="${logstashPort:-5044}" reconnectionDelayMillis="5000" protocol="UDP">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Socket>
+    </Appenders>
+
+    <Loggers>
+        <Root level="ALL">
+            <!-- Chay Production can OFF log CONSOLE tranh loi cao tai -->
+            <AppenderRef level="INFO" ref="CONSOLE_LOG"/>
+
+            <AppenderRef level="INFO" ref="APP_LOG_FILE"/>
+            <AppenderRef level="ERROR" ref="ERROR_LOG_FILE"/>
+
+            <!-- Gui log qua Logstash -->
+            <AppenderRef level="INFO" ref="LOGSTASH_VIA_UDP"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
