@@ -2,7 +2,7 @@
 -injars       build/libs/App_no_obfuscation.jar
 
 #cac thu vien
--injars       build/tmp_lib/cogover-rpc-5.0.1-SNAPSHOT.jar
+-injars       build/tmp_lib/cogover-rpc-5.0.2-SNAPSHOT.jar
 -injars       build/tmp_lib/cogover-java-common-1.3.30-SNAPSHOT.jar
 
 -outjars      _deploy/App.jar
